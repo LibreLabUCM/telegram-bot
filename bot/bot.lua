@@ -30,8 +30,7 @@ end
 
 function on_binlog_replay_end()
   started = true
-  --postpone (cron_plugins, false, 60*5.0)
-  postpone (cron_plugins, false, 10)
+  postpone (cron_plugins, false, 60*5.0)
   -- See plugins/ping.lua as an example for cron
 
   _config = load_config()
@@ -254,8 +253,7 @@ function cron_plugins()
   end
 
   -- Called again in 5 mins
-  --postpone (cron_plugins, false, 5*60.0)
-  postpone (cron_plugins, false, 10)
+  postpone (cron_plugins, false, 5*60.0)
 end
 
 -- Start and load values
