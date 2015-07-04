@@ -65,8 +65,8 @@ function run(msg, matches)
       return "Voting statistics :\n" .. votes_result
     end
   else
-    save_vote(tostring(msg.to.id), msg.from.print_name, tostring(tonumber(matches[2])))
-    return "Vote registered : " .. msg.from.print_name .. " " .. tostring(tonumber(matches [2]))
+    save_vote(tostring(msg.to.id), msg.from.print_name, string.lower(tostring(matches[2])))
+    return "Vote registered : " .. msg.from.print_name .. " " .. tostring(matches [2])
   end
 end
 
@@ -74,13 +74,13 @@ return {
   description = "Plugin for voting in groups.", 
   usage = {
     "!voting reset: Reset all the votes.",
-    "!vote [number]: Cast the vote.",
+    "!vote <option text>: Cast the vote.",
     "!voting stats: Shows the statistics of voting."
   },
   patterns = {
     "^!vot(ing) (reset)",
     "^!vot(ing) (stats)",
-    "^!vot(e) ([0-9]+)$"
+    "^!vot(e) (.+)$"
   }, 
   run = run 
 }
