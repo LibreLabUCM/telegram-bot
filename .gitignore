@@ -1,3 +1,4 @@
 res/
 data/
 .luarocks
+plugins/twitter_send.lua
