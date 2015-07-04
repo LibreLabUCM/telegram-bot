@@ -19,6 +19,7 @@ end]]--
 local function get_google_data(text)
   local url = "http://ajax.googleapis.com/ajax/services/search/images?"
   url = url.."v=1.0&rsz=5"
+  url = url.."&&safe=active" --use SafeSearch filter from Google
   url = url.."&q="..URL.escape(text)
   url = url.."&imgsz=small|medium|large"
   if google_config.api_keys then
